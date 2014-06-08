@@ -88,6 +88,10 @@ $custom_hex_colors = array(
 register_theme_options($custom_hex_colors);
 
 $font_families = array(
+	"Asap" => array(
+		"name" => "Asap",
+		"title" => __( "Asap", "cupertino" )
+	),
 	"Lato" => array(
 		"name" => "Lato",
 		"title" => __( "Lato", "cupertino" )
@@ -209,6 +213,18 @@ $custom_fonts = array(
 		"type" => "select",
 		"default" => "1.6rem",
 		"valid_options" => array(
+			"1rem" => array(
+				"name" => "1rem",
+				"title" => __( "1rem", "cupertino" )
+			),
+			"1.1rem" => array(
+				"name" => "1.1rem",
+				"title" => __( "1.1rem", "cupertino" )
+			),
+			"1.2rem" => array(
+				"name" => "1.2rem",
+				"title" => __( "1.2rem", "cupertino" )
+			),
 			"1.3rem" => array(
 				"name" => "1.3rem",
 				"title" => __( "1.3rem", "cupertino" )
@@ -363,7 +379,7 @@ function cupertino_fonts_url() {
 	if ( $body_font || $heading_font ) {
 		$font_families = array();
 
-		if ( $body_font !== 'lato' )
+		if ( $body_font )
 			$font_families[] = $body_font;
 
 		if ( $heading_font )
