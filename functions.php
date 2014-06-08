@@ -33,7 +33,7 @@ define( 'CHILD_THEME_URL', 'http://upthemes.com/' );
 define( 'CHILD_THEME_VERSION', '2.0.1' );
 
 //* Remove our default theme options page and just use the Theme Customizer instead
-//define('UPFW_NO_THEME_OPTIONS_PAGE',true);
+define('UPFW_NO_THEME_OPTIONS_PAGE',true);
 
 //* Enqueue Lato Google font
 add_action( 'wp_enqueue_scripts', 'genesis_sample_google_fonts' );
