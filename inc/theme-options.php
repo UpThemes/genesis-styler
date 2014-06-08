@@ -85,7 +85,7 @@ $custom_hex_colors = array(
 	),
 );
 
-register_theme_options($custom_hex_colors);
+register_theme_options( $custom_hex_colors );
 
 $font_families = array(
 	'Lato' => array(
@@ -389,8 +389,11 @@ function cupertino_fonts_url() {
  *
  * @uses wp_enqueue_style()
  */
-function cupertino_enqueue_fonts(){
-	wp_enqueue_style( 'cupertino-fonts', cupertino_fonts_url(), false );
+function cupertino_enqueue_fonts() {
+	if ( ! function_exists( 'cupertino_fonts_url' ) ) {
+		return;
+	}
+	wp_enqueue_style( 'cupertino-fonts', cupertino_fonts_url(), array(), false );
 }
 
 add_action( 'wp_enqueue_scripts', 'cupertino_enqueue_fonts', 9999 );
