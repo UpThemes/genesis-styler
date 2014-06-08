@@ -1,5 +1,4 @@
 <?php
-
 /**
 * Cupertino functions and definitions
 *
@@ -24,29 +23,17 @@
 * @package Cupertino
 */
 
-//* Child theme (do not remove)
-define( 'CHILD_THEME_NAME', 'Cupertino' );
-define( 'CHILD_THEME_URL', 'http://upthemes.com/' );
-define( 'CHILD_THEME_VERSION', '2.0.1' );
-
-//* Remove our default theme options page and just use the Theme Customizer instead
-define('UPFW_NO_THEME_OPTIONS_PAGE',true);
-
-if( file_exists( get_stylesheet_directory() . '/options/options.php' ) && file_exists( get_stylesheet_directory() . '/inc/theme-options.php' ) ) {
-
-	/* end automatic updater init script */
-
-	require_once( get_stylesheet_directory() . '/options/options.php' );
-	require_once( get_stylesheet_directory() . '/inc/theme-options.php' );
-	require_once( get_stylesheet_directory() . '/inc/theme-info.php' );
-	require_once( get_stylesheet_directory() . '/inc/style-generator.php' );
-
-}
-
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function cupertino_setup() {
+	//* Child theme (do not remove)
+	define( 'CHILD_THEME_NAME', 'Cupertino' );
+	define( 'CHILD_THEME_URL', 'http://upthemes.com/' );
+	define( 'CHILD_THEME_VERSION', '2.0.1' );
+
+	//* Remove our default theme options page and just use the Theme Customizer instead
+	define( 'UPFW_NO_THEME_OPTIONS_PAGE', true );
 
 	//* Add HTML5 markup structure
 	add_theme_support( 'html5' );
@@ -60,9 +47,31 @@ function cupertino_setup() {
 	//* Add support for 3-column footer widgets
 	add_theme_support( 'genesis-footer-widgets', 3 );
 
-}
+	//* Enqueue the scripts and styles for Cupertino.
+	add_action( 'wp_enqueue_scripts', 'cupertino_enqueue_scripts' );
 
-add_action('after_setup_theme','cupertino_setup');
+	//* Include required files for Cupertino.
+	cupertino_includes();
+}
+add_action( 'genesis_setup', 'cupertino_setup', 15 );
+
+/**
+ * Include required files for Cupertino
+ */
+function cupertino_includes() {
+	$options_dir  = trailingslashit( get_stylesheet_directory() . '/options' );
+	$includes_dir = trailingslashit( get_stylesheet_directory() . '/inc' );
+
+	if ( ! file_exists( $options_dir . 'options.php' ) || ! file_exists( $includes_dir . 'theme-options.php' ) ) {
+		return;
+	}
+
+	/* end automatic updater init script */
+	require_once( $options_dir  . 'options.php' );
+	require_once( $includes_dir . 'theme-options.php' );
+	require_once( $includes_dir . 'theme-info.php' );
+	require_once( $includes_dir . 'style-generator.php' );
+}
 
 /**
  * Enqueue the scripts and styles for Cupertino
@@ -70,7 +79,6 @@ add_action('after_setup_theme','cupertino_setup');
  * Sets up all the assets required for the theme to function properly.
  */
 function cupertino_enqueue_scripts(){
-
 	// Adds Google webfonts fonts to theme.
 	wp_enqueue_style( 'cupertino-fonts', cupertino_fonts_url() );
 
@@ -82,7 +90,4 @@ function cupertino_enqueue_scripts(){
 
 	// Load the custom theme CSS file.
 	wp_enqueue_style( 'cupertino-style', get_stylesheet_uri(), array('genesis-style') );
-
 }
-
-add_action('wp_enqueue_scripts','cupertino_enqueue_scripts');
