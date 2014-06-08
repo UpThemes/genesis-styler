@@ -358,6 +358,7 @@ function cupertino_fonts_url() {
 
 	$body_font = $up_options->body_text_font_family;
 	$heading_font = $up_options->heading_text_font_family;
+	$primary_menu_font = $up_options->primary_menu_font_family;
 
 	if ( $body_font || $heading_font ) {
 		$font_families = array();
@@ -367,6 +368,9 @@ function cupertino_fonts_url() {
 
 		if ( $heading_font )
 			$font_families[] = $heading_font . ":700";
+
+		if( $primary_menu_font )
+			$font_families[] = $primary_menu_font;
 
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
