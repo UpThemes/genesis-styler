@@ -1,0 +1,26 @@
+$body_font_size: 1.6rem !default;
+$body_text_font_family: Asap !default;
+$body_text_font_stack: $body_text_font_family, Arial, sans-serif !default;
+$heading_text_font_family: Asap !default;
+$heading_text_font_stack: $heading_text_font_family, Arial, sans-serif !default;
+$primary_menu_font_family: Asap !default;
+$primary_menu_font_stack: $heading_text_font_family, Arial, sans-serif !default;
+$primary_menu_font_size: 1rem !default;
+
+body{
+	font-size: $body_font_size;
+}
+
+body,
+.site-description{
+	font-family: $body_text_font_stack;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-family: $heading_text_font_stack;
+}
+
+.genesis-nav-menu{
+	font-family: $primary_menu_font_stack;
+	font-size: $primary_menu_font_size;
+}

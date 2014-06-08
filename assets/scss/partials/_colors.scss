@@ -1,0 +1,93 @@
+$site_background_color: #f4f4f4 !default;
+$site_background_text_color: contrast-color($site_background_color, #000, #fff, 45%) !default;
+
+$primary_menu_background_color: #333 !default;
+$primary_menu_link_color: contrast-color($primary_menu_background_color, #000, #fff, 50%) !default;
+
+$site_header_background_color: #333 !default;
+$site_header_title_color: contrast-color($site_header_background_color, #000, #fff, 45%) !default;
+$site_header_description_color: contrast-color($site_header_title_color, darken($site_header_title_color,5%), lighten($site_header_title_color,5%)) !default;
+
+$site_footer_background_color: #333 !default;
+$site_footer_text_color: contrast-color($site_footer_background_color, #000, #fff, 45%) !default;
+$site_footer_link_color: contrast-color($site_footer_text_color, darken($site_footer_text_color,5%), lighten($site_footer_text_color,5%)) !default;
+
+$entry_background_color: #fff !default;
+$entry_el_border_color: contrast-color($entry_background_color, darken($entry_background_color,30%), lighten($entry_background_color,30%)) !default;
+$entry_title_color: contrast-color($entry_background_color, #000, #fff, 45%) !default;
+$entry_text_color: contrast-color($entry_background_color, #000, #fff, 45%) !default;
+$entry_subtle_text_color: contrast-color($entry_background_color, darken($entry_background_color,60%), lighten($entry_background_color,60%), 45%) !default;
+$entry_link_color: contrast-color($entry_background_color, #000, #fff, 45%) !default;
+
+$entry_code_bg_color: contrast-color($entry_background_color, darken($entry_background_color,10%), lighten($entry_background_color,10%)) !default;
+
+body{
+	color: $site_background_text_color;
+}
+
+.site-header{
+	background-color: $site_header_background_color;
+
+	.site-title a{
+		color: $site_header_title_color;
+	}
+
+	.site-description{
+		color: $site_header_description_color;
+	}
+}
+
+.site-footer{
+	background-color: $site_footer_background_color;
+	color: $site_footer_text_color;
+
+	a{
+		color: $site_footer_link_color;
+	}
+}
+
+.nav-primary{
+	background-color: $primary_menu_background_color;
+
+	.wrap > ul > li > a{
+		color: $primary_menu_link_color;
+	}
+}
+
+.entry{
+	background-color: $entry_background_color;
+	color: $entry_text_color;
+
+	a{
+		color: $entry_link_color;
+	}
+}
+
+.entry-border-bottom{
+	border-color: $entry_el_border_color;
+}
+
+.entry-title a{
+	color: $entry_title_color;
+}
+
+.entry-content a{
+	@extend .entry-border-bottom;
+}
+
+.entry-meta {
+	color: $entry_subtle_text_color;
+
+	a{
+		@extend .entry-border-bottom;
+	}
+}
+
+.entry-footer .entry-meta{
+	@extend .entry-border-bottom;
+}
+
+.entry-content code {
+	background-color: #333;
+	color: #ddd;
+}

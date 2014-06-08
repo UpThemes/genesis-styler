@@ -1,0 +1,32 @@
+/*
+	Theme Name: Cupertino
+	Description: We love Genesis.
+	Author: UpThemes
+	Author URI: http://www.upthemes.com/
+	Version: 2.0.1
+
+	Tags: colors
+
+	Template: genesis
+	Template Version: 2.0.1
+
+	License: GPL-2.0+
+	License URI: http://www.opensource.org/licenses/gpl-license.php
+*/
+
+// Compass libraries
+@import "compass";
+
+// colors
+@import "partials/colors";
+@import "partials/fonts";
+
+.entry{
+	padding: 40px 40px 24px;
+	padding: 4rem 4rem 2.4rem;
+}
+
+.sidebar .widget{
+	padding: 40px;
+	padding: 4rem;
+}
