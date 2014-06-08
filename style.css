@@ -3,12 +3,12 @@
 	Description: We love Genesis.
 	Author: UpThemes
 	Author URI: http://www.upthemes.com/
-	Version: 2.0.1
+	Version: 0.1
 
 	Tags: colors
 
 	Template: genesis
-	Template Version: 2.0.1
+	Template Version: 2.0.2
 
 	License: GPL-2.0+
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -18,6 +18,9 @@ body { color: black; }
 .site-header { background-color: #333333; }
 .site-header .site-title a { color: white; }
 .site-header .site-description { color: #f2f2f2; }
+
+.site-footer { background-color: #333333; color: white; }
+.site-footer a { color: #f2f2f2; }
 
 .nav-primary { background-color: #333333; }
 .nav-primary .wrap > ul > li > a { color: white; }
@@ -33,8 +36,14 @@ body { color: black; }
 
 .entry-content code { background-color: #333; color: #ddd; }
 
-body { font-family: Asap; }
+body { font-size: 1.6rem; }
 
-.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 { font-family: Asap, Arial, sans-serif; }
+body, .site-description { font-family: Asap, Arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 { font-family: Asap, Arial, sans-serif; }
+
+.genesis-nav-menu { font-family: Asap, Arial, sans-serif; font-size: 1rem; }
 
 .entry { padding: 40px 40px 24px; padding: 4rem 4rem 2.4rem; }
+
+.sidebar .widget { padding: 40px; padding: 4rem; }
