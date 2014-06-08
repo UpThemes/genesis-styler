@@ -267,11 +267,11 @@ $custom_fonts = array(
 		"default" => "Lato",
 		"valid_options" => $font_families,
 	),
-	"menu_font_size" => array(
+	"primary_menu_font_size" => array(
 		"tab" => "appearance",
-		"name" => "menu_font_size",
-		"title" => "Menu Font Size",
-		"description" => __( "Select a base font size for your menu.", 'cupertino' ),
+		"name" => "primary_menu_font_size",
+		"title" => "Primary Menu Font Size",
+		"description" => __( "Select a base font size for your primary menu.", 'cupertino' ),
 		"section" => "fonts",
 		"since" => "1.0",
 		"id" => "fonts",
