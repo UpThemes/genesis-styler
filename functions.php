@@ -24,9 +24,6 @@
 * @package Cupertino
 */
 
-//* Start the engine
-//include_once( get_template_directory() . '/lib/init.php' );
-
 //* Child theme (do not remove)
 define( 'CHILD_THEME_NAME', 'Cupertino' );
 define( 'CHILD_THEME_URL', 'http://upthemes.com/' );
@@ -35,54 +32,13 @@ define( 'CHILD_THEME_VERSION', '2.0.1' );
 //* Remove our default theme options page and just use the Theme Customizer instead
 define('UPFW_NO_THEME_OPTIONS_PAGE',true);
 
-//* Add HTML5 markup structure
-add_theme_support( 'html5' );
-
-//* Add viewport meta tag for mobile browsers
-add_theme_support( 'genesis-responsive-viewport' );
-
-//* Add support for custom background
-add_theme_support( 'custom-background' );
-
-//* Add support for 3-column footer widgets
-add_theme_support( 'genesis-footer-widgets', 3 );
-
 if( file_exists( get_stylesheet_directory() . '/options/options.php' ) && file_exists( get_stylesheet_directory() . '/inc/theme-options.php' ) ) {
-
-	/**
-	 * automatic updater init
-	 */
-
-	require_once( get_stylesheet_directory() . '/inc/UpThemes_Theme_Updater.php' );
-
-	// Define variables for our theme updates
-	define('UPTHEMES_LICENSE_KEY','cupertino_theme');
-	define('UPTHEMES_ITEM_NAME', 'Cupertino Theme');
-	define('UPTHEMES_STORE_URL', 'https://upthemes.com');
-
-	/**
-	 * Check for available theme updates
-	 *
-	 */
-	function cupertino_theme_update_check(){
-
-		$upthemes_license = trim( get_option( UPTHEMES_LICENSE_KEY ) );
-
-		$edd_updater = new UpThemes_Theme_Updater(
-			array(
-				'remote_api_url'  => UPTHEMES_STORE_URL,  // Our store URL that is running EDD
-				'license'         => $upthemes_license, // The license key (used get_option above to retrieve from DB)
-				'item_name'       => UPTHEMES_ITEM_NAME,  // The name of this theme
-				'author'          => 'UpThemes'
-			)
-		);
-	}
-	add_action('admin_init','cupertino_theme_update_check',1);
 
 	/* end automatic updater init script */
 
 	require_once( get_stylesheet_directory() . '/options/options.php' );
 	require_once( get_stylesheet_directory() . '/inc/theme-options.php' );
+	require_once( get_stylesheet_directory() . '/inc/theme-info.php' );
 	require_once( get_stylesheet_directory() . '/inc/style-generator.php' );
 
 }
@@ -91,6 +47,18 @@ if( file_exists( get_stylesheet_directory() . '/options/options.php' ) && file_e
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function cupertino_setup() {
+
+	//* Add HTML5 markup structure
+	add_theme_support( 'html5' );
+
+	//* Add viewport meta tag for mobile browsers
+	add_theme_support( 'genesis-responsive-viewport' );
+
+	//* Add support for custom background
+	add_theme_support( 'custom-background' );
+
+	//* Add support for 3-column footer widgets
+	add_theme_support( 'genesis-footer-widgets', 3 );
 
 }
 
