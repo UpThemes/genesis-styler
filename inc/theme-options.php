@@ -50,6 +50,17 @@ $custom_hex_colors = array(
 		"type" => "color",
 		"default" => "#ffffff",
 	),
+	"site_footer_widget_area_background_color" => array(
+		"tab" => "appearance",
+		"name" => "site_footer_widget_area_background_color",
+		"title" => "Site Footer Widget Area Background Color",
+		"description" => __( "Select a color for the site footer background widget area.", 'cupertino' ),
+		"section" => "colors",
+		"since" => "1.0",
+		"id" => "colors",
+		"type" => "color",
+		"default" => "#333333",
+	),
 	"primary_menu_background_color" => array(
 		"tab" => "appearance",
 		"name" => "primary_menu_background_color",

@@ -2,8 +2,8 @@
 	Theme Name: Cupertino
 	Description: We love Genesis.
 	Author: UpThemes
-	Author URI: http://www.upthemes.com/
-	Version: 0.1.1
+	Author URI: http://www.upthemes.com/themes/cupertino/
+	Version: 0.1.3
 
 	Tags: colors
 
@@ -17,8 +17,13 @@
 // Compass libraries
 @import "compass";
 
-// colors
+// Mixins
+@import "modules/mixins";
+
+// Color customizations
 @import "partials/colors";
+
+// Font customizations
 @import "partials/fonts";
 
 .entry{

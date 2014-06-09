@@ -1,0 +1,7 @@
+@function contrasted-colored-text($bg_color,$mix_percent:15%,$lightness_percent:50%) {
+	@return contrast-color($bg_color, mix($bg_color, #000, $mix_percent), mix($bg_color, #fff, $mix_percent), $lightness_percent);
+}
+
+@function subtle-contrast($bg_color,$mix_percent:10%) {
+	@return contrast-color($bg_color, darken($bg_color,$mix_percent), lighten($bg_color,$mix_percent));
+}
