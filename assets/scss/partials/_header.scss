@@ -1,0 +1,17 @@
+$site_header_padding_top: 20px !default;
+$site_header_padding_bottom: 20px !default;
+$site_header_background_image: none !default;
+
+.has-header-bg-image .site-header{
+	background-image: url($site_header_background_image);
+	background-size: cover;
+
+	.site-title a,
+	h2{
+		color: white;
+	}
+}
+
+.site-header .wrap {
+	padding: $site-header-padding-top 0 $site-header-padding-bottom;
+}

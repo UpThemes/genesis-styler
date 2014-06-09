@@ -15,7 +15,45 @@ function cupertino_custom_upload_mimes( $existing_mimes ) {
 add_filter( 'upload_mimes', 'cupertino_custom_upload_mimes' );
 
 /**
- * Generates Scss variables for custom colors.
+ * Checks to see if the image is valid.
+ *
+ *
+ * @since 1.0.0
+ *
+ * @uses 	getimagesize() 	Quick way to check for existence of image.
+ *
+ * @return 	boolean			existence of image
+ */
+function cupertino_is_valid_image( $img ){
+	if( preg_match("/\.(jpeg|jpg|png|gif)$/",$img) )
+    if( ! isset( $img ) || ! getimagesize( $img ) ){
+        return false;
+    }else{
+        return true;
+    }
+}
+
+/**
+ * Adds body class if header image exists
+ *
+ * @since 1.0.0
+ */
+function cupertino_add_header_image_body_class(){
+	$up_options = upfw_get_options();
+
+	if( strpos( $up_options->site_header_background_image, 'blank.gif' ) === false && cupertino_is_valid_image( $up_options->site_header_background_image ) ){
+		add_filter('body_class',
+			function( $body_classes ){
+				$body_classes[] = 'has-header-bg-image';
+				return $body_classes;
+			});
+	}
+}
+
+add_action('init','cupertino_add_header_image_body_class');
+
+/**
+ * Generates SCSS variables for custom colors.
  *
  * @since 1.0.0
  */
@@ -24,7 +62,15 @@ function cupertino_update_custom_color_vars( $variables ) {
 	$up_options = upfw_get_options();
 
 	foreach( $up_options as $key => $variable ) {
-		$variables .= '$' . $key . ':' . $variable . ";";
+
+		if( cupertino_is_valid_image( $variable ) ){
+			$variable = "'" . $variable . "'";
+		}
+
+		if( ! empty( $variable ) ){
+			$scss_variable = '$' . $key . ':' . $variable . ';';
+			$variables .= $scss_variable;
+		}
 	}
 
 	return $variables;
@@ -33,6 +79,11 @@ function cupertino_update_custom_color_vars( $variables ) {
 
 add_filter( 'cupertino_style_variables','cupertino_update_custom_color_vars' );
 
+/**
+ * Register our custom preview CSS function in the customizer preview footer.
+ *
+ * @since 1.0.0
+ */
 function cupertino_customize_register($wp_customize) {
 	$up_options = upfw_get_options();
 
@@ -43,6 +94,11 @@ function cupertino_customize_register($wp_customize) {
 }
 add_action( 'customize_register', 'cupertino_customize_register' );
 
+/**
+ * Output customizer preview CSS.
+ *
+ * @since 1.0.0
+ */
 function cupertino_customize_preview() {
 	$up_options = upfw_get_options();
 

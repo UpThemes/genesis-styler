@@ -24,11 +24,17 @@ $entry_title_color: contrasted-colored-text($entry_background_color) !default;
 $entry_text_color: contrasted-colored-text($entry_background_color) !default;
 $entry_subtle_text_color: contrasted-colored-text($entry_background_color) !default;
 $entry_link_color: contrasted-colored-text($entry_background_color) !default;
+$entry_widget_area_field_color: subtle-contrast($entry_background_color,8%) !default;
+$entry_widget_area_field_text_color: contrasted-colored-text($entry_widget_area_field_color) !default;
 
 $entry_code_bg_color: contrasted-colored-text($entry_background_color) !default;
 
 body{
 	color: $site_background_text_color;
+
+	.breadcrumb a{
+		color: subtle-contrast( $site_background_text_color , 10% );
+	}
 }
 
 .site-header{
@@ -91,13 +97,45 @@ body{
 	}
 }
 
-.content > .entry{
+.content > .entry,
+.sidebar .widget{
 	background-color: $entry_background_color;
 	color: $entry_text_color;
 	border-color: subtle-contrast($entry_background_color);
 
 	a{
 		color: $entry_link_color;
+	}
+
+	input[type="text"],
+	input[type="color"],
+	input[type="date"],
+	input[type="datetime"],
+	input[type="datetime-local"],
+	input[type="email"],
+	input[type="month"],
+	input[type="number"],
+	input[type="range"],
+	input[type="search"],
+	input[type="tel"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	textarea{
+		background-color: $entry_widget_area_field_color;
+		color: $entry_widget_area_field_text_color;
+		border: none;
+		box-shadow: none;
+
+		&::-webkit-input-placeholder { color: $entry_widget_area_field_text_color; }
+		&::-moz-placeholder { color: $entry_widget_area_field_text_color; } /* firefox 19+ */
+		&:-ms-input-placeholder { color: $entry_widget_area_field_text_color; } /* ie */
+		&:-moz-placeholder { color: $entry_widget_area_field_text_color; }
+
+		&:focus{
+			background-color: subtle-contrast($entry_widget_area_field_color,10%);
+			border: none;
+		}
 	}
 }
 

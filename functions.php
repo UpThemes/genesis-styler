@@ -35,7 +35,7 @@ function cupertino_setup() {
 	define( 'CHILD_THEME_VERSION', $cupertino->get( 'Version' ) );
 
 	//* Remove our default theme options page and just use the Theme Customizer instead
-	define( 'UPFW_NO_THEME_OPTIONS_PAGE', true );
+	//define( 'UPFW_NO_THEME_OPTIONS_PAGE', true );
 
 	//* Add HTML5 markup structure
 	add_theme_support( 'html5' );

@@ -1,4 +1,4 @@
-var preview_loaded = function(){
+function preview_loaded(){
 	document.getElementById('scss-loading').style.display = 'none';
 }
 
@@ -21,7 +21,7 @@ jQuery(function($) {
 			});
 		});
 
-		$('select[data-customize-setting-link]').on('change',function(e){
+		$('select[data-customize-setting-link]').on('change',function(){
 			$('#scss-loading').show();
 		});
 

@@ -1,35 +1,151 @@
 <?php
 
-$appearance = array(
-	"name" => "appearance",
-	"title" => __("Appearance",'cupertino'),
+$header = array(
+	"name" => "header",
+	"title" => __("Header",'cupertino'),
 	'sections' => array(
-		'general' => array(
-			'name' => 'general',
-			'title' => __( 'General', 'cupertino' ),
-			'description' => __( 'General settings for this theme\'s color settings.','cupertino' )
+		'header' => array(
+			'name' => 'header',
+			'title' => __( 'Header', 'cupertino' ),
+			'description' => __( 'Header design options.','cupertino' )
 		),
+	)
+);
+
+register_theme_option_tab($header);
+
+$colors = array(
+	"name" => "colors",
+	"title" => __("Colors",'cupertino'),
+	'sections' => array(
 		'colors' => array(
 			'name' => 'colors',
 			'title' => __( 'Colors', 'cupertino' ),
 			'description' => __( 'Custom colors for this theme.','cupertino' )
 		),
+	)
+);
+
+register_theme_option_tab($colors);
+
+$fonts = array(
+	"name" => "fonts",
+	"title" => __("Fonts",'cupertino'),
+	'sections' => array(
 		'fonts' => array(
 			'name' => 'fonts',
 			'title' => __( 'Fonts', 'cupertino' ),
-			'description' => __( 'Custom fonts served from <a target="_blank" href="http://google.com/fonts">Google Web Fonts</a>. Keep in mind, the more fonts you use, the heavier load you are putting on your website visitors. Try to limit your selection to 2 font families, if possible.','cupertino' )
+			'description' => __( 'Custom fonts served from <a target="_blank" href="http://google.com/fonts">Google Web Fonts</a>. Keep in mind, the more fonts you use, the heavier load you are putting on your website visitors. Try to limit your selection to 2 font families, if possible. If you need more advanced custom font selection, check out <a href="http://wordpress.org/plugins/typecase/">Typecase</a>','cupertino' )
 		),
 	)
 );
 
-register_theme_option_tab($appearance);
+register_theme_option_tab($fonts);
+
+$header_padding_options = array(
+	"10px" => array(
+		"name" => "10px",
+		"title" => __( "10px", "cupertino" )
+	),
+	"20px" => array(
+		"name" => "20px",
+		"title" => __( "20px", "cupertino" )
+	),
+	"30px" => array(
+		"name" => "30px",
+		"title" => __( "30px", "cupertino" )
+	),
+	"40px" => array(
+		"name" => "40px",
+		"title" => __( "40px", "cupertino" )
+	),
+	"50px" => array(
+		"name" => "50px",
+		"title" => __( "50px", "cupertino" )
+	),
+	"60px" => array(
+		"name" => "60px",
+		"title" => __( "60px", "cupertino" )
+	),
+	"70px" => array(
+		"name" => "70px",
+		"title" => __( "70px", "cupertino" )
+	),
+	"80px" => array(
+		"name" => "80px",
+		"title" => __( "80px", "cupertino" )
+	),
+	"90px" => array(
+		"name" => "90px",
+		"title" => __( "90px", "cupertino" )
+	),
+	"100px" => array(
+		"name" => "100px",
+		"title" => __( "100px", "cupertino" )
+	),
+	"110px" => array(
+		"name" => "110px",
+		"title" => __( "110px", "cupertino" )
+	),
+	"120px" => array(
+		"name" => "120px",
+		"title" => __( "120px", "cupertino" )
+	),
+	"130px" => array(
+		"name" => "130px",
+		"title" => __( "130px", "cupertino" )
+	),
+	"140px" => array(
+		"name" => "140px",
+		"title" => __( "140px", "cupertino" )
+	),
+);
+
+$custom_header_options = array(
+	"site_header_padding_top" => array(
+		"tab" => "header",
+		"name" => "site_header_padding_top",
+		"title" => "Header Top Padding",
+		"description" => __( "Padding for the top of your header area.", 'cupertino' ),
+		"section" => "header",
+		"since" => "1.0",
+		"id" => "header",
+		"type" => "select",
+		"default" => "20px",
+		"valid_options" => $header_padding_options,
+	),
+	"site_header_padding_bottom" => array(
+		"tab" => "header",
+		"name" => "site_header_padding_bottom",
+		"title" => "Header Bottom Padding",
+		"description" => __( "Padding for the bottom of your header area.", 'cupertino' ),
+		"section" => "header",
+		"since" => "1.0",
+		"id" => "header",
+		"type" => "select",
+		"default" => "20px",
+		"valid_options" => $header_padding_options,
+	),
+	"site_header_background_image" => array(
+		"tab" => "header",
+		"name" => "site_header_background_image",
+		"title" => "Background Image",
+		"description" => __( "Header area background image.", 'cupertino' ),
+		"section" => "header",
+		"since" => "1.0",
+		"id" => "header",
+		"type" => "upload",
+		"default" => includes_url( '/images/blank.gif' )
+	),
+);
+register_theme_options($custom_header_options);
 
 /**
  * Custom color options.
  */
 $custom_hex_colors = array(
 	"site_header_background_color" => array(
-		"tab" => "appearance",
+		"tab" => "colors",
 		"name" => "site_header_background_color",
 		"title" => "Site Header Background Color",
 		"description" => __( "Select a color for the site header background.", 'cupertino' ),
@@ -40,7 +156,7 @@ $custom_hex_colors = array(
 		"default" => "#ffffff",
 	),
 	"site_footer_background_color" => array(
-		"tab" => "appearance",
+		"tab" => "colors",
 		"name" => "site_footer_background_color",
 		"title" => "Site Footer Background Color",
 		"description" => __( "Select a color for the site footer background.", 'cupertino' ),
@@ -51,7 +167,7 @@ $custom_hex_colors = array(
 		"default" => "#ffffff",
 	),
 	"site_footer_widget_area_background_color" => array(
-		"tab" => "appearance",
+		"tab" => "colors",
 		"name" => "site_footer_widget_area_background_color",
 		"title" => "Site Footer Widget Area Background Color",
 		"description" => __( "Select a color for the site footer background widget area.", 'cupertino' ),
@@ -62,7 +178,7 @@ $custom_hex_colors = array(
 		"default" => "#333333",
 	),
 	"primary_menu_background_color" => array(
-		"tab" => "appearance",
+		"tab" => "colors",
 		"name" => "primary_menu_background_color",
 		"title" => "Primary Menu Background Color",
 		"description" => __( "Select your background color for the primary menu.", 'cupertino' ),
@@ -73,7 +189,7 @@ $custom_hex_colors = array(
 		"default" => "#333333",
 	),
 	"entry_background_color" => array(
-		"tab" => "appearance",
+		"tab" => "colors",
 		"name" => "entry_background_color",
 		"title" => "Entry Background Color",
 		"description" => __( "Select a background color for post entries.", 'cupertino' ),
@@ -84,7 +200,7 @@ $custom_hex_colors = array(
 		"default" => "#ffffff",
 	),
 	"primary_link_color" => array(
-		"tab" => "appearance",
+		"tab" => "colors",
 		"name" => "primary_link_color",
 		"title" => "Primary Link Color",
 		"description" => __( "Select a color for primary links.", 'cupertino' ),
@@ -202,7 +318,7 @@ $font_families = array(
  */
 $custom_fonts = array(
 	"body_text_font_family" => array(
-		"tab" => "appearance",
+		"tab" => "fonts",
 		"name" => "body_text_font_family",
 		"title" => "Body Font Family",
 		"description" => __( "Select a font family for your body text.", 'cupertino' ),
@@ -214,7 +330,7 @@ $custom_fonts = array(
 		"valid_options" => $font_families,
 	),
 	"body_font_size" => array(
-		"tab" => "appearance",
+		"tab" => "fonts",
 		"name" => "body_font_size",
 		"title" => "Body Font Size",
 		"description" => __( "Select a base font size.", 'cupertino' ),
@@ -271,7 +387,7 @@ $custom_fonts = array(
 		),
 	),
 	"heading_text_font_family" => array(
-		"tab" => "appearance",
+		"tab" => "fonts",
 		"name" => "heading_text_font_family",
 		"title" => "Heading Font Family",
 		"description" => __( "Select a font family for your body text.", 'cupertino' ),
@@ -283,7 +399,7 @@ $custom_fonts = array(
 		"valid_options" => $font_families,
 	),
 	"primary_menu_font_family" => array(
-		"tab" => "appearance",
+		"tab" => "fonts",
 		"name" => "primary_menu_font_family",
 		"title" => "Primary Menu Font Family",
 		"description" => __( "Select a font family for your menu text.", 'cupertino' ),
@@ -295,7 +411,7 @@ $custom_fonts = array(
 		"valid_options" => $font_families,
 	),
 	"primary_menu_font_size" => array(
-		"tab" => "appearance",
+		"tab" => "fonts",
 		"name" => "primary_menu_font_size",
 		"title" => "Primary Menu Font Size",
 		"description" => __( "Select a base font size for your primary menu.", 'cupertino' ),
