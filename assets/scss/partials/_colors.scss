@@ -1,25 +1,31 @@
 $site_background_color: #f4f4f4 !default;
-$site_background_text_color: contrast-color($site_background_color, #000, #fff, 45%) !default;
+$site_background_text_color: contrasted-colored-text($site_background_color) !default;
 
 $primary_menu_background_color: #333 !default;
-$primary_menu_link_color: contrast-color($primary_menu_background_color, #000, #fff, 50%) !default;
+$primary_menu_link_color: contrasted-colored-text($primary_menu_background_color) !default;
 
 $site_header_background_color: #333 !default;
-$site_header_title_color: contrast-color($site_header_background_color, #000, #fff, 45%) !default;
-$site_header_description_color: contrast-color($site_header_title_color, darken($site_header_title_color,5%), lighten($site_header_title_color,5%)) !default;
+$site_header_title_color: contrasted-colored-text($site_header_background_color,25%) !default;
+$site_header_description_color: contrasted-colored-text($site_header_background_color,55%) !default;
+
+$site_footer_widget_area_background_color: #333 !default;
+$site_footer_widget_area_text_color: contrasted-colored-text($site_footer_widget_area_background_color) !default;
+$site_footer_widget_area_link_color: contrasted-colored-text($site_footer_widget_area_background_color,25%) !default;
+$site_footer_widget_area_field_color: subtle-contrast($site_footer_widget_area_background_color,8%) !default;
+$site_footer_widget_area_field_text_color: contrasted-colored-text($site_footer_widget_area_field_color) !default;
 
 $site_footer_background_color: #333 !default;
-$site_footer_text_color: contrast-color($site_footer_background_color, #000, #fff, 45%) !default;
-$site_footer_link_color: contrast-color($site_footer_text_color, darken($site_footer_text_color,5%), lighten($site_footer_text_color,5%)) !default;
+$site_footer_text_color: contrasted-colored-text($site_footer_background_color) !default;
+$site_footer_link_color: contrasted-colored-text($site_footer_background_color,55%) !default;
 
 $entry_background_color: #fff !default;
-$entry_el_border_color: contrast-color($entry_background_color, darken($entry_background_color,30%), lighten($entry_background_color,30%)) !default;
-$entry_title_color: contrast-color($entry_background_color, #000, #fff, 45%) !default;
-$entry_text_color: contrast-color($entry_background_color, #000, #fff, 45%) !default;
-$entry_subtle_text_color: contrast-color($entry_background_color, darken($entry_background_color,60%), lighten($entry_background_color,60%), 45%) !default;
-$entry_link_color: contrast-color($entry_background_color, #000, #fff, 45%) !default;
+$entry_el_border_color: subtle-contrast($entry_background_color) !default;
+$entry_title_color: contrasted-colored-text($entry_background_color) !default;
+$entry_text_color: contrasted-colored-text($entry_background_color) !default;
+$entry_subtle_text_color: contrasted-colored-text($entry_background_color) !default;
+$entry_link_color: contrasted-colored-text($entry_background_color) !default;
 
-$entry_code_bg_color: contrast-color($entry_background_color, darken($entry_background_color,10%), lighten($entry_background_color,10%)) !default;
+$entry_code_bg_color: contrasted-colored-text($entry_background_color) !default;
 
 body{
 	color: $site_background_text_color;
@@ -46,6 +52,37 @@ body{
 	}
 }
 
+.footer-widgets{
+	background-color: $site_footer_widget_area_background_color;
+	color: $site_footer_widget_area_text_color;
+
+	.widget-title{
+		color: $site_footer_widget_area_text_color;
+	}
+
+	a{
+		border-color: $site_footer_widget_area_link_color;
+		color: $site_footer_widget_area_link_color;
+	}
+
+	input[type="search"]{
+		background-color: $site_footer_widget_area_field_color;
+		color: $site_footer_widget_area_field_text_color;
+		border: none;
+		box-shadow: none;
+
+		&::-webkit-input-placeholder { color: $site_footer_widget_area_field_text_color; }
+		&::-moz-placeholder { color: $site_footer_widget_area_field_text_color; } /* firefox 19+ */
+		&:-ms-input-placeholder { color: $site_footer_widget_area_field_text_color; } /* ie */
+		&:-moz-placeholder { color: $site_footer_widget_area_field_text_color; }
+
+		&:focus{
+			background-color: subtle-contrast($site_footer_widget_area_field_color,10%);
+			border: none;
+		}
+	}
+}
+
 .nav-primary{
 	background-color: $primary_menu_background_color;
 
@@ -54,9 +91,10 @@ body{
 	}
 }
 
-.entry{
+.content > .entry{
 	background-color: $entry_background_color;
 	color: $entry_text_color;
+	border-color: subtle-contrast($entry_background_color);
 
 	a{
 		color: $entry_link_color;

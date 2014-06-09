@@ -27,10 +27,12 @@
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function cupertino_setup() {
+	$cupertino = wp_get_theme();
+
 	//* Child theme (do not remove)
 	define( 'CHILD_THEME_NAME', 'Cupertino' );
-	define( 'CHILD_THEME_URL', 'http://upthemes.com/' );
-	define( 'CHILD_THEME_VERSION', '2.0.1' );
+	define( 'CHILD_THEME_URL', 'https://upthemes.com/themes/cupertino/' );
+	define( 'CHILD_THEME_VERSION', $cupertino->get( 'Version' ) );
 
 	//* Remove our default theme options page and just use the Theme Customizer instead
 	define( 'UPFW_NO_THEME_OPTIONS_PAGE', true );
