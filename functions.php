@@ -78,7 +78,7 @@ function cupertino_includes() {
  *
  * Sets up all the assets required for the theme to function properly.
  */
-function cupertino_enqueue_scripts(){
+function cupertino_enqueue_scripts() {
 	// Adds Google webfonts fonts to theme.
 	wp_enqueue_style( 'cupertino-fonts', cupertino_fonts_url() );
 
