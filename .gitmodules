@@ -1,9 +1,12 @@
 [submodule "options"]
 	path = options
 	url = git@github.com:UpThemes/UpThemes-Framework.git
+	ignore = dirty
 [submodule "inc/scssphp"]
 	path = inc/scssphp
 	url = git@github.com:leafo/scssphp.git
+	ignore = dirty
 [submodule "inc/scssphp-compass"]
 	path = inc/scssphp-compass
 	url = https://github.com/leafo/scssphp-compass
+	ignore = dirty
