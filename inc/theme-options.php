@@ -2,12 +2,12 @@
 
 $header = array(
 	"name" => "header",
-	"title" => __("Header",'cupertino'),
+	"title" => __("Header",'easystyle'),
 	'sections' => array(
 		'header' => array(
 			'name' => 'header',
-			'title' => __( 'Header', 'cupertino' ),
-			'description' => __( 'Header design options.','cupertino' )
+			'title' => __( 'Header', 'easystyle' ),
+			'description' => __( 'Header design options.','easystyle' )
 		),
 	)
 );
@@ -16,12 +16,12 @@ register_theme_option_tab($header);
 
 $colors = array(
 	"name" => "colors",
-	"title" => __("Colors",'cupertino'),
+	"title" => __("Colors",'easystyle'),
 	'sections' => array(
 		'colors' => array(
 			'name' => 'colors',
-			'title' => __( 'Colors', 'cupertino' ),
-			'description' => __( 'Custom colors for this theme.','cupertino' )
+			'title' => __( 'Colors', 'easystyle' ),
+			'description' => __( 'Custom colors for this theme.','easystyle' )
 		),
 	)
 );
@@ -30,12 +30,12 @@ register_theme_option_tab($colors);
 
 $fonts = array(
 	"name" => "fonts",
-	"title" => __("Fonts",'cupertino'),
+	"title" => __("Fonts",'easystyle'),
 	'sections' => array(
 		'fonts' => array(
 			'name' => 'fonts',
-			'title' => __( 'Fonts', 'cupertino' ),
-			'description' => __( 'Custom fonts served from <a target="_blank" href="http://google.com/fonts">Google Web Fonts</a>. Keep in mind, the more fonts you use, the heavier load you are putting on your website visitors. Try to limit your selection to 2 font families, if possible. If you need more advanced custom font selection, check out <a href="http://wordpress.org/plugins/typecase/">Typecase</a>','cupertino' )
+			'title' => __( 'Fonts', 'easystyle' ),
+			'description' => __( 'Custom fonts served from <a target="_blank" href="http://google.com/fonts">Google Web Fonts</a>. Keep in mind, the more fonts you use, the heavier load you are putting on your website visitors. Try to limit your selection to 2 font families, if possible. If you need more advanced custom font selection, check out <a href="http://wordpress.org/plugins/typecase/">Typecase</a>','easystyle' )
 		),
 	)
 );
@@ -45,59 +45,59 @@ register_theme_option_tab($fonts);
 $header_padding_options = array(
 	"10px" => array(
 		"name" => "10px",
-		"title" => __( "10px", "cupertino" )
+		"title" => __( "10px", "easystyle" )
 	),
 	"20px" => array(
 		"name" => "20px",
-		"title" => __( "20px", "cupertino" )
+		"title" => __( "20px", "easystyle" )
 	),
 	"30px" => array(
 		"name" => "30px",
-		"title" => __( "30px", "cupertino" )
+		"title" => __( "30px", "easystyle" )
 	),
 	"40px" => array(
 		"name" => "40px",
-		"title" => __( "40px", "cupertino" )
+		"title" => __( "40px", "easystyle" )
 	),
 	"50px" => array(
 		"name" => "50px",
-		"title" => __( "50px", "cupertino" )
+		"title" => __( "50px", "easystyle" )
 	),
 	"60px" => array(
 		"name" => "60px",
-		"title" => __( "60px", "cupertino" )
+		"title" => __( "60px", "easystyle" )
 	),
 	"70px" => array(
 		"name" => "70px",
-		"title" => __( "70px", "cupertino" )
+		"title" => __( "70px", "easystyle" )
 	),
 	"80px" => array(
 		"name" => "80px",
-		"title" => __( "80px", "cupertino" )
+		"title" => __( "80px", "easystyle" )
 	),
 	"90px" => array(
 		"name" => "90px",
-		"title" => __( "90px", "cupertino" )
+		"title" => __( "90px", "easystyle" )
 	),
 	"100px" => array(
 		"name" => "100px",
-		"title" => __( "100px", "cupertino" )
+		"title" => __( "100px", "easystyle" )
 	),
 	"110px" => array(
 		"name" => "110px",
-		"title" => __( "110px", "cupertino" )
+		"title" => __( "110px", "easystyle" )
 	),
 	"120px" => array(
 		"name" => "120px",
-		"title" => __( "120px", "cupertino" )
+		"title" => __( "120px", "easystyle" )
 	),
 	"130px" => array(
 		"name" => "130px",
-		"title" => __( "130px", "cupertino" )
+		"title" => __( "130px", "easystyle" )
 	),
 	"140px" => array(
 		"name" => "140px",
-		"title" => __( "140px", "cupertino" )
+		"title" => __( "140px", "easystyle" )
 	),
 );
 
@@ -106,7 +106,7 @@ $custom_header_options = array(
 		"tab" => "header",
 		"name" => "site_header_padding_top",
 		"title" => "Header Top Padding",
-		"description" => __( "Padding for the top of your header area.", 'cupertino' ),
+		"description" => __( "Padding for the top of your header area.", 'easystyle' ),
 		"section" => "header",
 		"since" => "1.0",
 		"id" => "header",
@@ -118,7 +118,7 @@ $custom_header_options = array(
 		"tab" => "header",
 		"name" => "site_header_padding_bottom",
 		"title" => "Header Bottom Padding",
-		"description" => __( "Padding for the bottom of your header area.", 'cupertino' ),
+		"description" => __( "Padding for the bottom of your header area.", 'easystyle' ),
 		"section" => "header",
 		"since" => "1.0",
 		"id" => "header",
@@ -130,7 +130,7 @@ $custom_header_options = array(
 		"tab" => "header",
 		"name" => "site_header_background_image",
 		"title" => "Background Image",
-		"description" => __( "Header area background image.", 'cupertino' ),
+		"description" => __( "Header area background image.", 'easystyle' ),
 		"section" => "header",
 		"since" => "1.0",
 		"id" => "header",
@@ -148,7 +148,7 @@ $custom_hex_colors = array(
 		"tab" => "colors",
 		"name" => "site_header_background_color",
 		"title" => "Site Header Background Color",
-		"description" => __( "Select a color for the site header background.", 'cupertino' ),
+		"description" => __( "Select a color for the site header background.", 'easystyle' ),
 		"section" => "colors",
 		"since" => "1.0",
 		"id" => "colors",
@@ -159,7 +159,7 @@ $custom_hex_colors = array(
 		"tab" => "colors",
 		"name" => "site_footer_background_color",
 		"title" => "Site Footer Background Color",
-		"description" => __( "Select a color for the site footer background.", 'cupertino' ),
+		"description" => __( "Select a color for the site footer background.", 'easystyle' ),
 		"section" => "colors",
 		"since" => "1.0",
 		"id" => "colors",
@@ -170,7 +170,7 @@ $custom_hex_colors = array(
 		"tab" => "colors",
 		"name" => "site_footer_widget_area_background_color",
 		"title" => "Site Footer Widget Area Background Color",
-		"description" => __( "Select a color for the site footer background widget area.", 'cupertino' ),
+		"description" => __( "Select a color for the site footer background widget area.", 'easystyle' ),
 		"section" => "colors",
 		"since" => "1.0",
 		"id" => "colors",
@@ -181,7 +181,7 @@ $custom_hex_colors = array(
 		"tab" => "colors",
 		"name" => "primary_menu_background_color",
 		"title" => "Primary Menu Background Color",
-		"description" => __( "Select your background color for the primary menu.", 'cupertino' ),
+		"description" => __( "Select your background color for the primary menu.", 'easystyle' ),
 		"section" => "colors",
 		"since" => "1.0",
 		"id" => "colors",
@@ -192,7 +192,7 @@ $custom_hex_colors = array(
 		"tab" => "colors",
 		"name" => "entry_background_color",
 		"title" => "Entry Background Color",
-		"description" => __( "Select a background color for post entries.", 'cupertino' ),
+		"description" => __( "Select a background color for post entries.", 'easystyle' ),
 		"section" => "colors",
 		"since" => "1.0",
 		"id" => "colors",
@@ -203,7 +203,7 @@ $custom_hex_colors = array(
 		"tab" => "colors",
 		"name" => "primary_link_color",
 		"title" => "Primary Link Color",
-		"description" => __( "Select a color for primary links.", 'cupertino' ),
+		"description" => __( "Select a color for primary links.", 'easystyle' ),
 		"section" => "colors",
 		"since" => "1.0",
 		"id" => "colors",
@@ -217,99 +217,99 @@ register_theme_options($custom_hex_colors);
 $font_families = array(
 	"Asap" => array(
 		"name" => "Asap",
-		"title" => __( "Asap", "cupertino" )
+		"title" => __( "Asap", "easystyle" )
 	),
 	"Lato" => array(
 		"name" => "Lato",
-		"title" => __( "Lato", "cupertino" )
+		"title" => __( "Lato", "easystyle" )
 	),
 	"Merriweather" => array(
 		"name" => "Merriweather",
-		"title" => __( "Merriweather", "cupertino" )
+		"title" => __( "Merriweather", "easystyle" )
 	),
 	"Oswald" => array(
 		"name" => "Oswald",
-		"title" => __( "Oswald", "cupertino" )
+		"title" => __( "Oswald", "easystyle" )
 	),
 	"Open Sans" => array(
 		"name" => "Open Sans",
-		"title" => __( "Open Sans", "cupertino" )
+		"title" => __( "Open Sans", "easystyle" )
 	),
 	"Roboto" => array(
 		"name" => "Roboto",
-		"title" => __( "Roboto", "cupertino" )
+		"title" => __( "Roboto", "easystyle" )
 	),
 	"Droid Sans" => array(
 		"name" => "Droid Sans",
-		"title" => __( "Droid Sans", "cupertino" )
+		"title" => __( "Droid Sans", "easystyle" )
 	),
 	"PT Sans" => array(
 		"name" => "PT Sans",
-		"title" => __( "PT Sans", "cupertino" )
+		"title" => __( "PT Sans", "easystyle" )
 	),
 	"Source Sans Pro" => array(
 		"name" => "Source Sans Pro",
-		"title" => __( "Source Sans Pro", "cupertino" )
+		"title" => __( "Source Sans Pro", "easystyle" )
 	),
 	"Droid Serif" => array(
 		"name" => "Droid Serif",
-		"title" => __( "Droid Serif", "cupertino" )
+		"title" => __( "Droid Serif", "easystyle" )
 	),
 	"Lora" => array(
 		"name" => "Lora",
-		"title" => __( "Lora", "cupertino" )
+		"title" => __( "Lora", "easystyle" )
 	),
 	"Arvo" => array(
 		"name" => "Arvo",
-		"title" => __( "Arvo", "cupertino" )
+		"title" => __( "Arvo", "easystyle" )
 	),
 	"Bitter" => array(
 		"name" => "Bitter",
-		"title" => __( "Bitter", "cupertino" )
+		"title" => __( "Bitter", "easystyle" )
 	),
 	"Playfair Display" => array(
 		"name" => "Playfair Display",
-		"title" => __( "Playfair Display", "cupertino" )
+		"title" => __( "Playfair Display", "easystyle" )
 	),
 	"Vollkorn" => array(
 		"name" => "Vollkorn",
-		"title" => __( "Vollkorn", "cupertino" )
+		"title" => __( "Vollkorn", "easystyle" )
 	),
 	"Libre Baskerville" => array(
 		"name" => "Libre Baskerville",
-		"title" => __( "Libre Baskerville", "cupertino" )
+		"title" => __( "Libre Baskerville", "easystyle" )
 	),
 	"Alegreya" => array(
 		"name" => "Alegreya",
-		"title" => __( "Alegreya", "cupertino" )
+		"title" => __( "Alegreya", "easystyle" )
 	),
 	"Kreon" => array(
 		"name" => "Kreon",
-		"title" => __( "Kreon", "cupertino" )
+		"title" => __( "Kreon", "easystyle" )
 	),
 	"Crimson Text" => array(
 		"name" => "Crimson Text",
-		"title" => __( "Crimson Text", "cupertino" )
+		"title" => __( "Crimson Text", "easystyle" )
 	),
 	"Josefin Slab" => array(
 		"name" => "Josefin Slab",
-		"title" => __( "Josefin Slab", "cupertino" )
+		"title" => __( "Josefin Slab", "easystyle" )
 	),
 	"EB Garamond" => array(
 		"name" => "EB Garamond",
-		"title" => __( "EB Garamond", "cupertino" )
+		"title" => __( "EB Garamond", "easystyle" )
 	),
 	"Domine" => array(
 		"name" => "Domine",
-		"title" => __( "Domine", "cupertino" )
+		"title" => __( "Domine", "easystyle" )
 	),
 	"Copse" => array(
 		"name" => "Copse",
-		"title" => __( "Copse", "cupertino" )
+		"title" => __( "Copse", "easystyle" )
 	),
 	"Neuton" => array(
 		"name" => "Neuton",
-		"title" => __( "Neuton", "cupertino" )
+		"title" => __( "Neuton", "easystyle" )
 	),
 );
 
@@ -321,7 +321,7 @@ $custom_fonts = array(
 		"tab" => "fonts",
 		"name" => "body_text_font_family",
 		"title" => "Body Font Family",
-		"description" => __( "Select a font family for your body text.", 'cupertino' ),
+		"description" => __( "Select a font family for your body text.", 'easystyle' ),
 		"section" => "fonts",
 		"since" => "1.0",
 		"id" => "fonts",
@@ -333,7 +333,7 @@ $custom_fonts = array(
 		"tab" => "fonts",
 		"name" => "body_font_size",
 		"title" => "Body Font Size",
-		"description" => __( "Select a base font size.", 'cupertino' ),
+		"description" => __( "Select a base font size.", 'easystyle' ),
 		"section" => "fonts",
 		"since" => "1.0",
 		"id" => "fonts",
@@ -342,47 +342,47 @@ $custom_fonts = array(
 		"valid_options" => array(
 			"1rem" => array(
 				"name" => "1rem",
-				"title" => __( "1rem", "cupertino" )
+				"title" => __( "1rem", "easystyle" )
 			),
 			"1.1rem" => array(
 				"name" => "1.1rem",
-				"title" => __( "1.1rem", "cupertino" )
+				"title" => __( "1.1rem", "easystyle" )
 			),
 			"1.2rem" => array(
 				"name" => "1.2rem",
-				"title" => __( "1.2rem", "cupertino" )
+				"title" => __( "1.2rem", "easystyle" )
 			),
 			"1.3rem" => array(
 				"name" => "1.3rem",
-				"title" => __( "1.3rem", "cupertino" )
+				"title" => __( "1.3rem", "easystyle" )
 			),
 			"1.4rem" => array(
 				"name" => "1.4rem",
-				"title" => __( "1.4rem", "cupertino" )
+				"title" => __( "1.4rem", "easystyle" )
 			),
 			"1.5rem" => array(
 				"name" => "1.5rem",
-				"title" => __( "1.5rem", "cupertino" )
+				"title" => __( "1.5rem", "easystyle" )
 			),
 			"1.6rem" => array(
 				"name" => "1.6rem",
-				"title" => __( "1.6rem", "cupertino" )
+				"title" => __( "1.6rem", "easystyle" )
 			),
 			"1.7rem" => array(
 				"name" => "1.7rem",
-				"title" => __( "1.7rem", "cupertino" )
+				"title" => __( "1.7rem", "easystyle" )
 			),
 			"1.8rem" => array(
 				"name" => "1.8rem",
-				"title" => __( "1.8rem", "cupertino" )
+				"title" => __( "1.8rem", "easystyle" )
 			),
 			"1.9rem" => array(
 				"name" => "1.9rem",
-				"title" => __( "1.9rem", "cupertino" )
+				"title" => __( "1.9rem", "easystyle" )
 			),
 			"2rem" => array(
 				"name" => "2rem",
-				"title" => __( "2rem", "cupertino" )
+				"title" => __( "2rem", "easystyle" )
 			),
 		),
 	),
@@ -390,7 +390,7 @@ $custom_fonts = array(
 		"tab" => "fonts",
 		"name" => "heading_text_font_family",
 		"title" => "Heading Font Family",
-		"description" => __( "Select a font family for your body text.", 'cupertino' ),
+		"description" => __( "Select a font family for your body text.", 'easystyle' ),
 		"section" => "fonts",
 		"since" => "1.0",
 		"id" => "fonts",
@@ -402,7 +402,7 @@ $custom_fonts = array(
 		"tab" => "fonts",
 		"name" => "primary_menu_font_family",
 		"title" => "Primary Menu Font Family",
-		"description" => __( "Select a font family for your menu text.", 'cupertino' ),
+		"description" => __( "Select a font family for your menu text.", 'easystyle' ),
 		"section" => "fonts",
 		"since" => "1.0",
 		"id" => "fonts",
@@ -414,7 +414,7 @@ $custom_fonts = array(
 		"tab" => "fonts",
 		"name" => "primary_menu_font_size",
 		"title" => "Primary Menu Font Size",
-		"description" => __( "Select a base font size for your primary menu.", 'cupertino' ),
+		"description" => __( "Select a base font size for your primary menu.", 'easystyle' ),
 		"section" => "fonts",
 		"since" => "1.0",
 		"id" => "fonts",
@@ -423,63 +423,63 @@ $custom_fonts = array(
 		"valid_options" => array(
 			".6rem" => array(
 				"name" => ".6rem",
-				"title" => __( ".6rem", "cupertino" )
+				"title" => __( ".6rem", "easystyle" )
 			),
 			".7rem" => array(
 				"name" => ".7rem",
-				"title" => __( ".7rem", "cupertino" )
+				"title" => __( ".7rem", "easystyle" )
 			),
 			".8rem" => array(
 				"name" => ".8rem",
-				"title" => __( ".8rem", "cupertino" )
+				"title" => __( ".8rem", "easystyle" )
 			),
 			".9rem" => array(
 				"name" => ".9rem",
-				"title" => __( ".9rem", "cupertino" )
+				"title" => __( ".9rem", "easystyle" )
 			),
 			"1rem" => array(
 				"name" => "1rem",
-				"title" => __( "1rem", "cupertino" )
+				"title" => __( "1rem", "easystyle" )
 			),
 			"1.1rem" => array(
 				"name" => "1.1rem",
-				"title" => __( "1.1rem", "cupertino" )
+				"title" => __( "1.1rem", "easystyle" )
 			),
 			"1.2rem" => array(
 				"name" => "1.2rem",
-				"title" => __( "1.2rem", "cupertino" )
+				"title" => __( "1.2rem", "easystyle" )
 			),
 			"1.3rem" => array(
 				"name" => "1.3rem",
-				"title" => __( "1.3rem", "cupertino" )
+				"title" => __( "1.3rem", "easystyle" )
 			),
 			"1.4rem" => array(
 				"name" => "1.4rem",
-				"title" => __( "1.4rem", "cupertino" )
+				"title" => __( "1.4rem", "easystyle" )
 			),
 			"1.5rem" => array(
 				"name" => "1.5rem",
-				"title" => __( "1.5rem", "cupertino" )
+				"title" => __( "1.5rem", "easystyle" )
 			),
 			"1.6rem" => array(
 				"name" => "1.6rem",
-				"title" => __( "1.6rem", "cupertino" )
+				"title" => __( "1.6rem", "easystyle" )
 			),
 			"1.7rem" => array(
 				"name" => "1.7rem",
-				"title" => __( "1.7rem", "cupertino" )
+				"title" => __( "1.7rem", "easystyle" )
 			),
 			"1.8rem" => array(
 				"name" => "1.8rem",
-				"title" => __( "1.8rem", "cupertino" )
+				"title" => __( "1.8rem", "easystyle" )
 			),
 			"1.9rem" => array(
 				"name" => "1.9rem",
-				"title" => __( "1.9rem", "cupertino" )
+				"title" => __( "1.9rem", "easystyle" )
 			),
 			"2rem" => array(
 				"name" => "2rem",
-				"title" => __( "2rem", "cupertino" )
+				"title" => __( "2rem", "easystyle" )
 			),
 		),
 	),
@@ -495,7 +495,7 @@ register_theme_options($custom_fonts);
  *
  * @return string Font stylesheet or empty string if disabled.
  */
-function cupertino_fonts_url() {
+function easystyle_fonts_url() {
 
 	$up_options = upfw_get_options();
 
@@ -530,10 +530,10 @@ function cupertino_fonts_url() {
  *
  * @uses wp_enqueue_style()
  */
-function cupertino_enqueue_fonts(){
+function easystyle_enqueue_fonts(){
 	if ( ! is_admin() ){
-		wp_enqueue_style('cupertino-fonts', cupertino_fonts_url(), false );
+		wp_enqueue_style('easystyle-fonts', easystyle_fonts_url(), false );
 	}
 }
 
-add_action('wp_enqueue_scripts','cupertino_enqueue_fonts',9999);
+add_action('wp_enqueue_scripts','easystyle_enqueue_fonts',9999);

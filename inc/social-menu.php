@@ -4,8 +4,8 @@
  * Register our social icon menu
  *
  */
-function cupertino_social_nav_menus() {
-	register_nav_menu( 'social', __( 'Social', 'cupertino' ) );
+function easystyle_social_nav_menus() {
+	register_nav_menu( 'social', __( 'Social', 'easystyle' ) );
 }
 
-add_action( 'init', 'cupertino_social_nav_menus' );
+add_action( 'init', 'easystyle_social_nav_menus' );
