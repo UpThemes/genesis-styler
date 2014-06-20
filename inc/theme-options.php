@@ -35,7 +35,7 @@ $fonts = array(
 		'fonts' => array(
 			'name' => 'fonts',
 			'title' => __( 'Fonts', 'gstyler' ),
-			'description' => __( 'Custom fonts served from <a target='_blank' href='http://google.com/fonts'>Google Web Fonts</a>. Keep in mind, the more fonts you use, the heavier load you are putting on your website visitors. Try to limit your selection to 2 font families, if possible. If you need more advanced custom font selection, check out <a href='http://wordpress.org/plugins/typecase/'>Typecase</a>','gstyler' )
+			'description' => __( 'Custom fonts served from <a target="_blank" href="http://google.com/fonts">Google Web Fonts</a>. Keep in mind, the more fonts you use, the heavier load you are putting on your website visitors. Try to limit your selection to 2 font families, if possible. If you need more advanced custom font selection, check out <a href="http://wordpress.org/plugins/typecase/">Typecase</a>.','gstyler' )
 		),
 	)
 );
