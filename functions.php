@@ -81,6 +81,8 @@ function gstyler_includes() {
 	// Load the Sass style regeneration scripts.
 	require_once( $includes_dir . 'style-generator.php' );
 
+	// Load the skin import/export class.
+	require_once( $includes_dir . 'class-import-skins.php' );
 }
 
 /**
