@@ -1,12 +1,12 @@
 <?php
 /**
-* Easy Style functions and definitions
+* Genesis Styler functions and definitions
 *
 * Sets up the theme and provides some helper functions. Some helper functions
 * are used in the theme as custom template tags. Others are attached to action and
 * filter hooks in WordPress to change core functionality.
 *
-* The first function, easystyle_setup(), sets up the theme by registering support
+* The first function, gstyler_setup(), sets up the theme by registering support
 * for various features in WordPress, such as a custom background and a navigation menu.
 *
 * When using a child theme (see http://codex.wordpress.org/Theme_Development and
@@ -20,22 +20,22 @@
 *
 * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
 *
-* @package Easy Style
+* @package Genesis Styler
 */
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
-function easystyle_setup() {
-	$easystyle = wp_get_theme();
+function gstyler_setup() {
+	$gstyler = wp_get_theme();
 
 	//* Child theme (do not remove)
-	define( 'CHILD_THEME_NAME', 'Easy Style' );
-	define( 'CHILD_THEME_URL', 'https://upthemes.com/themes/easystyle/' );
-	define( 'CHILD_THEME_VERSION', $easystyle->get( 'Version' ) );
+	define( 'CHILD_THEME_NAME', 'Genesis Styler' );
+	define( 'CHILD_THEME_URL', 'https://upthemes.com/themes/gstyler/' );
 
-	//* Remove our default theme options page and just use the Theme Customizer instead
-	//define( 'UPFW_NO_THEME_OPTIONS_PAGE', true );
+	if( isset( $gstyler ) ){
+		define( 'CHILD_THEME_VERSION', $gstyler->get( 'Version' ) );
+	}
 
 	//* Add HTML5 markup structure
 	add_theme_support( 'html5' );
@@ -49,18 +49,19 @@ function easystyle_setup() {
 	//* Add support for 3-column footer widgets
 	add_theme_support( 'genesis-footer-widgets', 3 );
 
-	//* Enqueue the scripts and styles for Easy Style.
-	add_action( 'wp_enqueue_scripts', 'easystyle_enqueue_scripts' );
+	//* Enqueue the scripts and styles for Genesis Styler.
+	add_action( 'wp_enqueue_scripts', 'gstyler_enqueue_scripts' );
 
-	//* Include required files for Easy Style.
-	easystyle_includes();
+	//* Include required files for Genesis Styler.
+	gstyler_includes();
 }
-add_action( 'genesis_setup', 'easystyle_setup', 15 );
+add_action( 'genesis_setup', 'gstyler_setup', 15 );
 
 /**
- * Include required files for Easy Style
+ * Include required files for Genesis Styler
  */
-function easystyle_includes() {
+function gstyler_includes() {
+
 	$options_dir  = trailingslashit( get_stylesheet_directory() . '/options' );
 	$includes_dir = trailingslashit( get_stylesheet_directory() . '/inc' );
 
@@ -68,21 +69,28 @@ function easystyle_includes() {
 		return;
 	}
 
-	/* end automatic updater init script */
+	// Load the UpThemes Framework.
 	require_once( $options_dir  . 'options.php' );
+
+	// Load custom theme options for this theme.
 	require_once( $includes_dir . 'theme-options.php' );
+
+	// Load theme information page.
 	require_once( $includes_dir . 'theme-info.php' );
+
+	// Load the Sass style regeneration scripts.
 	require_once( $includes_dir . 'style-generator.php' );
+
 }
 
 /**
- * Enqueue the scripts and styles for Easy Style
+ * Enqueue the scripts and styles for Genesis Styler
  *
  * Sets up all the assets required for the theme to function properly.
  */
-function easystyle_enqueue_scripts() {
+function gstyler_enqueue_scripts() {
 	// Adds Google webfonts fonts to theme.
-	wp_enqueue_style( 'easystyle-fonts', easystyle_fonts_url() );
+	wp_enqueue_style( 'gstyler-fonts', gstyler_fonts_url() );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/fonts/genericons.css', array(), '2.09' );
@@ -91,5 +99,5 @@ function easystyle_enqueue_scripts() {
 	wp_enqueue_style( 'genesis-style', get_template_directory_uri() .'/style.css' );
 
 	// Load the custom theme CSS file.
-	wp_enqueue_style( 'easystyle-style', get_stylesheet_uri(), array('genesis-style') );
+	wp_enqueue_style( 'gstyler-style', get_stylesheet_uri(), array('genesis-style') );
 }

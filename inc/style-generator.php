@@ -5,14 +5,14 @@
  *
  * @since 1.0.0
  */
-function easystyle_custom_upload_mimes( $existing_mimes ) {
+function gstyler_custom_upload_mimes( $existing_mimes ) {
 	// add webm to the list of mime types
 	$existing_mimes['css'] = 'text/css';
 
 	// return the array back to the function with our added mime type
 	return $existing_mimes;
 }
-add_filter( 'upload_mimes', 'easystyle_custom_upload_mimes' );
+add_filter( 'upload_mimes', 'gstyler_custom_upload_mimes' );
 
 /**
  * Checks to see if the image is valid.
@@ -24,7 +24,7 @@ add_filter( 'upload_mimes', 'easystyle_custom_upload_mimes' );
  *
  * @return 	boolean			existence of image
  */
-function easystyle_is_valid_image( $img ){
+function gstyler_is_valid_image( $img ){
 	if( preg_match("/\.(jpeg|jpg|png|gif)$/",$img) )
     if( ! isset( $img ) || ! getimagesize( $img ) ){
         return false;
@@ -38,10 +38,10 @@ function easystyle_is_valid_image( $img ){
  *
  * @since 1.0.0
  */
-function easystyle_add_header_image_body_class(){
+function gstyler_add_header_image_body_class(){
 	$up_options = upfw_get_options();
 
-	if( strpos( $up_options->site_header_background_image, 'blank.gif' ) === false && easystyle_is_valid_image( $up_options->site_header_background_image ) ){
+	if( strpos( $up_options->site_header_background_image, 'blank.gif' ) === false && gstyler_is_valid_image( $up_options->site_header_background_image ) ){
 		add_filter('body_class',
 			function( $body_classes ){
 				$body_classes[] = 'has-header-bg-image';
@@ -50,20 +50,20 @@ function easystyle_add_header_image_body_class(){
 	}
 }
 
-add_action('init','easystyle_add_header_image_body_class');
+add_action('init','gstyler_add_header_image_body_class');
 
 /**
  * Generates SCSS variables for custom colors.
  *
  * @since 1.0.0
  */
-function easystyle_update_custom_color_vars( $variables ) {
+function gstyler_update_custom_color_vars( $variables ) {
 
 	$up_options = upfw_get_options();
 
 	foreach( $up_options as $key => $variable ) {
 
-		if( easystyle_is_valid_image( $variable ) ){
+		if( gstyler_is_valid_image( $variable ) ){
 			$variable = "'" . $variable . "'";
 		}
 
@@ -77,32 +77,32 @@ function easystyle_update_custom_color_vars( $variables ) {
 
 }
 
-add_filter( 'easystyle_style_variables','easystyle_update_custom_color_vars' );
+add_filter( 'gstyler_style_variables','gstyler_update_custom_color_vars' );
 
 /**
  * Register our custom preview CSS function in the customizer preview footer.
  *
  * @since 1.0.0
  */
-function easystyle_customize_register($wp_customize) {
+function gstyler_customize_register($wp_customize) {
 	$up_options = upfw_get_options();
 
 	if ( $wp_customize->is_preview() && ! is_admin() ) {
-	    add_action( 'wp_footer', 'easystyle_customize_preview', 21);
+	    add_action( 'wp_footer', 'gstyler_customize_preview', 21);
 	}
 
 }
-add_action( 'customize_register', 'easystyle_customize_register' );
+add_action( 'customize_register', 'gstyler_customize_register' );
 
 /**
  * Output customizer preview CSS.
  *
  * @since 1.0.0
  */
-function easystyle_customize_preview() {
+function gstyler_customize_preview() {
 	$up_options = upfw_get_options();
 
-	$styles = easystyle_css_regenerate( 'inline' );
+	$styles = gstyler_css_regenerate( 'inline' );
 	echo '<style type="text/css" id="custom-styles">';
 	echo $styles;
 	echo '</style>';
@@ -117,10 +117,10 @@ function easystyle_customize_preview() {
  *
  * @since 1.0.0
  */
-function easystyle_customizations_saved_notice() {
+function gstyler_customizations_saved_notice() {
     ?>
     <div class="updated">
-        <p><?php _e( 'Your custom theme styles were saved and a new CSS file was generated successfully.', 'easystyle' ); ?></p>
+        <p><?php _e( 'Your custom theme styles were saved and a new CSS file was generated successfully.', 'gstyler' ); ?></p>
     </div>
     <?php
 }
@@ -130,14 +130,14 @@ function easystyle_customizations_saved_notice() {
  *
  * @since 1.0.0
  */
-function easystyle_customizations_not_saved_notice() {
-	global $easystyle_error;
+function gstyler_customizations_not_saved_notice() {
+	global $gstyler_error;
     ?>
     <div class="error">
-    	<?php if ( $easystyle_error ) : ?>
-    		<p><?php echo $easystyle_error; ?>
+    	<?php if ( $gstyler_error ) : ?>
+    		<p><?php echo $gstyler_error; ?>
     	<?php else: ?>
-        	<p><?php _e( 'Your custom theme styles were not saved. Please check your settings and try again.', 'easystyle' ); ?></p>
+        	<p><?php _e( 'Your custom theme styles were not saved. Please check your settings and try again.', 'gstyler' ); ?></p>
         <?php endif; ?>
     </div>
     <?php
@@ -151,14 +151,14 @@ function easystyle_customizations_not_saved_notice() {
  * @param string $format file|inline 	Either creates a new file in the uploads folder
  * 										or outputs CSS inline.
  */
-function easystyle_css_regenerate( $format = 'file' ) {
+function gstyler_css_regenerate( $format = 'file' ) {
 
 	try {
 
 		require get_stylesheet_directory() . "/inc/scssphp/scss.inc.php";
 		require get_stylesheet_directory() . "/inc/scssphp-compass/compass.inc.php";
 
-		$base_import_path = apply_filters( 'easystyle_base_import_path', get_stylesheet_directory() . '/assets/scss/' );
+		$base_import_path = apply_filters( 'gstyler_base_import_path', get_stylesheet_directory() . '/assets/scss/' );
 
 		$scss = new scssc();
 		$scss->setImportPaths($base_import_path);
@@ -167,15 +167,15 @@ function easystyle_css_regenerate( $format = 'file' ) {
 
 		$scss->setFormatter("scss_formatter");
 
-		$style_overrides = apply_filters( 'easystyle_style_variables','' );
-		$style_scss_imports = apply_filters( 'easystyle_style_scss_imports',"@import 'style.scss';" );
+		$style_overrides = apply_filters( 'gstyler_style_variables','' );
+		$style_scss_imports = apply_filters( 'gstyler_style_scss_imports',"@import 'style.scss';" );
 
 		$style_content = $scss->compile("
 			$style_overrides
 			$style_scss_imports
 		");
 
-		$old_file = get_option( 'easystyle-style-override' );
+		$old_file = get_option( 'gstyler-style-override' );
 
 		if ( $format === 'file' ) {
 
@@ -189,18 +189,18 @@ function easystyle_css_regenerate( $format = 'file' ) {
 
 				$style_scss['date'] = date( 'Y-m-d' );
 
-				$updated = update_option( 'easystyle-style-override',$style_scss);
+				$updated = update_option( 'gstyler-style-override',$style_scss);
 
 				if ( isset( $updated ) ) {
-					add_action( 'admin_notices', 'easystyle_customizations_saved_notice' );
+					add_action( 'admin_notices', 'gstyler_customizations_saved_notice' );
 				} else {
-					global $easystyle_error;
-					$easystyle_error = __( 'The option could not be saved.','easystyle' );
-					add_action( 'admin_notices', 'easystyle_customizations_not_saved_notice' );
+					global $gstyler_error;
+					$gstyler_error = __( 'The option could not be saved.','gstyler' );
+					add_action( 'admin_notices', 'gstyler_customizations_not_saved_notice' );
 				}
 
 			} else {
-				add_action( 'admin_notices', 'easystyle_customizations_not_saved_notice' );
+				add_action( 'admin_notices', 'gstyler_customizations_not_saved_notice' );
 			}
 
 		} elseif ( $format === 'inline' ) {
@@ -208,9 +208,9 @@ function easystyle_css_regenerate( $format = 'file' ) {
 		}
 
 	} catch ( Exception $e ) {
-		global $easystyle_error;
-		$easystyle_error = $e->getMessage();
-		add_action( 'admin_notices', 'easystyle_customizations_not_saved_notice' );
+		global $gstyler_error;
+		$gstyler_error = $e->getMessage();
+		add_action( 'admin_notices', 'gstyler_customizations_not_saved_notice' );
 	}
 }
 
@@ -219,20 +219,20 @@ function easystyle_css_regenerate( $format = 'file' ) {
  *
  * @since 1.0.0
  */
-function easystyle_options_save_regenerate_css() {
+function gstyler_options_save_regenerate_css() {
 	$up_options = upfw_get_options();
 
 	if ( isset($_GET['settings-updated']) && $_GET['settings-updated'] == 'true' ) {
-		easystyle_css_regenerate();
+		gstyler_css_regenerate();
 	}
 }
 
-add_action( 'load-appearance_page_upfw-settings','easystyle_options_save_regenerate_css',1);
+add_action( 'load-appearance_page_upfw-settings','gstyler_options_save_regenerate_css',1);
 
 /**
  * Import background color for Compass config
  */
-function easystyle_inject_bg_color($variables) {
+function gstyler_inject_bg_color($variables) {
 	$bg_color = get_theme_mod( 'background_color' );
 
 	if ( $bg_color ) {
@@ -241,51 +241,51 @@ function easystyle_inject_bg_color($variables) {
 
 	return $variables;
 }
-add_filter( 'easystyle_style_variables','easystyle_inject_bg_color' );
+add_filter( 'gstyler_style_variables','gstyler_inject_bg_color' );
 
 /**
  * Save new stylesheet when Theme Customizer is saved.
  *
  * @since 1.0.0
  */
-function easystyle_customizer_save_regenerate_css() {
-	easystyle_css_regenerate();
+function gstyler_customizer_save_regenerate_css() {
+	gstyler_css_regenerate();
 }
 
-add_action( 'customize_save_after','easystyle_customizer_save_regenerate_css',1);
+add_action( 'customize_save_after','gstyler_customizer_save_regenerate_css',1);
 
 /**
  * Remove default stylesheet and enqueue new one.
  *
  * @since 1.0.0
  */
-function easystyle_override_default_styles() {
+function gstyler_override_default_styles() {
 	$up_options = upfw_get_options();
-	$custom_style = get_option( 'easystyle-style-override' );
+	$custom_style = get_option( 'gstyler-style-override' );
 
 	if ( $custom_style ) {
-		wp_dequeue_style( 'easystyle-style' );
-		wp_enqueue_style( 'easystyle-style-override', $custom_style['url'], false, $custom_style['date'] );
+		wp_dequeue_style( 'gstyler-style' );
+		wp_enqueue_style( 'gstyler-style-override', $custom_style['url'], false, $custom_style['date'] );
 	}
 }
 
-add_action( 'wp_enqueue_scripts', 'easystyle_override_default_styles',9999 );
+add_action( 'wp_enqueue_scripts', 'gstyler_override_default_styles',9999 );
 
 /**
  * Initialize our custom theme option for color schemes.
  *
  * @since 1.0.0
  */
-function easystyle_add_custom_theme_options() {
+function gstyler_add_custom_theme_options() {
 	global $pagenow;
 
 	if ( $pagenow == 'themes.php' && !empty($_GET['page']) && $_GET['page'] == 'upfw-settings' ) {
-		wp_enqueue_style( 'easystyle-color-schemes', get_template_directory_uri() . '/assets/css/color-schemes.css' );
-		upfw_add_custom_field( 'colors','easystyle_colors' );
+		wp_enqueue_style( 'gstyler-color-schemes', get_template_directory_uri() . '/assets/css/color-schemes.css' );
+		upfw_add_custom_field( 'colors','gstyler_colors' );
 	}
 }
 
-add_action( 'admin_init','easystyle_add_custom_theme_options',1);
+add_action( 'admin_init','gstyler_add_custom_theme_options',1);
 
 /**
  * Sanitize our color scheme input.
@@ -294,18 +294,18 @@ add_action( 'admin_init','easystyle_add_custom_theme_options',1);
  *
  * @since 1.0.0
  */
-function easystyle_sanitize_color_scheme( $input ) {
+function gstyler_sanitize_color_scheme( $input ) {
 	return $input;
 }
 
-add_filter( 'upfw_sanitize_colors', 'easystyle_sanitize_color_scheme' );
+add_filter( 'upfw_sanitize_colors', 'gstyler_sanitize_color_scheme' );
 
 /**
  * Custom color scheme option for UpThemes Framework.
  *
  * @since 1.0.0
  */
-function easystyle_colors( $value, $attr ) {
+function gstyler_colors( $value, $attr ) {
     global $wpdb;
 
     $selected = $value;
@@ -392,12 +392,12 @@ add_action( 'customize_register', 'upfw_customize_color_register' );
 
 function enqueue_customizer_scripts() {
 	wp_enqueue_style(
-		'easystyle-color-schemes',
+		'gstyler-color-schemes',
 		get_stylesheet_directory_uri() . '/assets/css/color-schemes.css'
 	);
 
 	wp_enqueue_script(
-		'easystyle-customize-theme',
+		'gstyler-customize-theme',
 		get_stylesheet_directory_uri() . '/assets/js/customize-theme.js'
 	);
 }
@@ -461,7 +461,7 @@ class UpThemes_Color_Scheme_Radio_Control extends WP_Customize_Control {
 
 	public function enqueue() {
 		wp_enqueue_style(
-			'easystyle-color-schemes',
+			'gstyler-color-schemes',
 			get_stylesheet_directory_uri() . '/assets/css/color-schemes.css'
 		);
 	}
