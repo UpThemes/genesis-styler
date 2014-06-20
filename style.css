@@ -13,12 +13,13 @@
 	License: GPL-2.0+
 	License URI: http://www.opensource.org/licenses/gpl-license.php
 */
+@media only screen and (max-width: 1023px) { .archive-description, .author-box, .comment-respond, .entry, .entry-comments, .entry-footer .entry-meta, .header-image .site-header .widget-area, .sidebar .widget, .site-header { padding: 20px; padding: 3rem; } }
 body { color: #242424; }
 body .breadcrumb a { color: #0a0a0a; }
 
 .site-header { background-color: #333333; }
-.site-header .site-title a { color: #cccccc; }
-.site-header .site-description { color: #8e8e8e; }
+.site-header .site-title a { color: #eaeaea; }
+.site-header .site-description { color: #cccccc; }
 
 .site-footer { background-color: #333333; color: #e0e0e0; }
 .site-footer a { color: #8e8e8e; }

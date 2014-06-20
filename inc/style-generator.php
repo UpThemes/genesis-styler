@@ -17,7 +17,6 @@ add_filter( 'upload_mimes', 'gstyler_custom_upload_mimes' );
 /**
  * Checks to see if the image is valid.
  *
- *
  * @since 1.0.0
  *
  * @uses 	getimagesize() 	Quick way to check for existence of image.

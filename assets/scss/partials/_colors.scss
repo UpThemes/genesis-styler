@@ -5,8 +5,8 @@ $primary_menu_background_color: #333 !default;
 $primary_menu_link_color: contrasted-colored-text($primary_menu_background_color) !default;
 
 $site_header_background_color: #333 !default;
-$site_header_title_color: contrasted-colored-text($site_header_background_color,25%) !default;
-$site_header_description_color: contrasted-colored-text($site_header_background_color,55%) !default;
+$site_header_title_color: contrasted-colored-text($site_header_background_color,10%) !default;
+$site_header_description_color: contrasted-colored-text($site_header_background_color,25%) !default;
 
 $site_footer_widget_area_background_color: #333 !default;
 $site_footer_widget_area_text_color: contrasted-colored-text($site_footer_widget_area_background_color) !default;
