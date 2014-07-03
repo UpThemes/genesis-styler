@@ -22,3 +22,5 @@ You can inject your own styles and Sass variables into the style regeneration pr
 ### Things to Know
 
 Right now, we use the page refresh method within the Customizer, so it takes a little bit of time before your style changes are updated. The next step is to make the live preview process faster.
+
+##### DISCLAIMER: this project is not affiliated with StudioPress in any way. The name "Genesis" is being used with permission.
